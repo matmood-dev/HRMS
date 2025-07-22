@@ -3,21 +3,26 @@ import React from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
 
+const Container = styled.div`
+  padding: 2rem;
+`;
+
 const Title = styled.h1`
   font-size: 2.5rem;
-  color: #222;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
+  font-weight: 800;
 `;
 
 const Subtitle = styled.p`
   font-size: 1.25rem;
-  color: #666;
+  color: var(--color-muted);
   margin-bottom: 2rem;
 `;
 
 const Button = styled.button`
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   font-size: 1rem;
   padding: 12px 24px;
   border-radius: 6px;
@@ -26,16 +31,18 @@ const Button = styled.button`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: var(--color-primary-hover);
   }
 `;
 
 const HomePage: React.FC = () => {
   return (
     <Layout>
-      <Title>Welcome to Humx HRMS</Title>
-      <Subtitle>Manage your employees, payroll, leave, and more.</Subtitle>
-      <Button onClick={() => alert("Start Managing")}>Get Started</Button>
+      <Container>
+        <Title>Welcome to Humx HRMS</Title>
+        <Subtitle>Manage your employees, payroll, leave, and more.</Subtitle>
+        <Button onClick={() => alert("Start Managing")}>Get Started</Button>
+      </Container>
     </Layout>
   );
 };

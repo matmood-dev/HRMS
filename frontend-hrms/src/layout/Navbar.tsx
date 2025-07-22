@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const NavBarContainer = styled.header`
   height: 60px;
-  background-color: #ffffff;
+  background-color: var(--color-bg);
   border-bottom: 1px solid #e0e0e0;
   padding: 0 1.5rem;
   display: flex;
@@ -14,7 +14,8 @@ const NavBarContainer = styled.header`
 
 const Title = styled.h1`
   font-size: 1.25rem;
-  color: #222;
+  color: var(--color-text);
+  font-weight: 700;
 `;
 
 const RightContent = styled.div`
@@ -23,13 +24,19 @@ const RightContent = styled.div`
   gap: 1rem;
 `;
 
+const UserName = styled.span`
+  color: var(--color-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+`;
+
 const Avatar = styled.div`
   width: 36px;
   height: 36px;
-  background-color: #007bff;
+  background-color: var(--color-primary);
   border-radius: 50%;
-  color: white;
-  font-weight: bold;
+  color: var(--color-bg);
+  font-weight: 600;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -41,7 +48,7 @@ const Navbar: React.FC = () => {
     <NavBarContainer>
       <Title>Dashboard</Title>
       <RightContent>
-        <span>Admin</span>
+        <UserName>Admin</UserName>
         <Avatar>A</Avatar>
       </RightContent>
     </NavBarContainer>

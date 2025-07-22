@@ -1,15 +1,18 @@
 /* index.css - global styles and reset */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --color-bg: #f5f7fa;
-  --color-text: #222;
-  --color-muted: #666;
-  --color-primary: #007bff;
-  --color-primary-hover: #0056b3;
-  --color-sidebar: #1f2937;
-  --color-sidebar-hover: #374151;
+  font-family: "Mulish", sans-serif;
+
+  --color-bg: #ffffff;            /* white background */
+  --color-text: #000000;          /* black text */
+  --color-muted: #555555;         /* dark gray for muted text */
+  --color-primary: #000000;       /* black as the primary accent */
+  --color-primary-hover: #333333; /* dark gray on hover */
+  --color-sidebar: #000000;       /* black sidebar */
+  --color-sidebar-hover: #333333; /* dark gray on hover */
 }
+
 
 /* CSS Reset */
 * {

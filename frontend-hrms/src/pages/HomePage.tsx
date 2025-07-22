@@ -2,6 +2,7 @@
 import React from "react";
 import Layout from "../layout/Layout";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   padding: 2rem;
@@ -36,12 +37,13 @@ const Button = styled.button`
 `;
 
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Layout>
       <Container>
-        <Title>Welcome to Humx HRMS</Title>
-        <Subtitle>Manage your employees, payroll, leave, and more.</Subtitle>
-        <Button onClick={() => alert("Start Managing")}>Get Started</Button>
+        <Title>{t("home.welcome")}</Title>
+        <Subtitle>{t("home.description")}</Subtitle>
+        <Button onClick={() => alert("Start Managing")}>{t("home.getStarted")}</Button>
       </Container>
     </Layout>
   );

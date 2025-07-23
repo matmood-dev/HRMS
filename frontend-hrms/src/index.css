@@ -1,18 +1,32 @@
 /* index.css - global styles and reset */
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
   font-family: "Mulish", sans-serif;
 
-  --color-bg: #ffffff;            /* white background */
-  --color-text: #000000;          /* black text */
-  --color-muted: #555555;         /* dark gray for muted text */
-  --color-primary: #000000;       /* black as the primary accent */
-  --color-primary-hover: #333333; /* dark gray on hover */
-  --color-sidebar: #000000;       /* black sidebar */
-  --color-sidebar-hover: #333333; /* dark gray on hover */
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-muted: #555555;
+  --color-primary: #000000;
+  --color-primary-hover: #333333;
+  --color-border: #ccc;
+  --color-focus-ring: rgba(0, 138, 173, 0.2);
 }
 
+[data-theme="dark"] {
+  --color-bg: #1e1e1e;
+  --color-text: #f0f0f0;
+  --color-muted: #aaaaaa;
+  --color-primary: #ffffff;
+  --color-primary-hover: #dddddd;
+  --color-border: #444;
+  --color-focus-ring: rgba(255, 255, 255, 0.2);
+}
+
+html[dir="rtl"] {
+  font-family: "Rubik", sans-serif;
+}
 
 /* CSS Reset */
 * {

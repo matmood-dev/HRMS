@@ -3,9 +3,36 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { HomeOutlined, TeamOutlined } from "@ant-design/icons";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   children: React.ReactNode;
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
+  const { t } = useTranslation();
+  return (
+    <Container>
+      <Sidebar>
+        <SidebarTitle>Humx HRMS</SidebarTitle>
+        <NavItem>
+          <HomeOutlined style={{ marginRight: "8px" }} />
+          {t("layout.dashboard")}
+        </NavItem>
+        <NavItem>
+          <TeamOutlined style={{ marginRight: "8px" }} />
+          {t("employees.title")}
+        </NavItem>
+      </Sidebar>
+
+      <MainWrapper>
+        <Navbar />
+        <Main>{children}</Main>
+        <Footer />
+      </MainWrapper>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -65,22 +92,5 @@ const Main = styled.main`
   background-color: var(--color-bg);
   color: var(--color-text);
 `;
-
-const Layout: React.FC<Props> = ({ children }) => {
-  return (
-    <Container>
-      <Sidebar>
-        <SidebarTitle>Humx HRMS</SidebarTitle>
-        <NavItem>🏠 Dashboard</NavItem>
-      </Sidebar>
-
-      <MainWrapper>
-        <Navbar />
-        <Main>{children}</Main>
-        <Footer />
-      </MainWrapper>
-    </Container>
-  );
-};
 
 export default Layout;

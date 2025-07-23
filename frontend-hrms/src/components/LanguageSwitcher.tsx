@@ -1,46 +1,80 @@
-// src/components/LanguageSwitcher.tsx
 import React from "react";
+import { Select } from "antd";
+import { GlobalOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+
+const { Option } = Select;
 
 const LanguageSwitcher: React.FC = () => {
   const { i18n } = useTranslation();
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLang = event.target.value;
-    i18n.changeLanguage(selectedLang);
-  };
-
   return (
-    <Dropdown value={i18n.language} onChange={handleChange}>
-      <option value="en">English</option>
-      <option value="ar">العربية</option>
-    </Dropdown>
+    <StyledWrapper>
+      <GlobalOutlined className="globe-icon" />
+      <StyledSelect
+        value={i18n.language}
+        onChange={(value) => i18n.changeLanguage(value as string)}
+        suffixIcon={null}
+      >
+        <Option value="en">
+          <span style={{ whiteSpace: "nowrap" }}>English</span>
+        </Option>
+        <Option value="ar">
+          <span style={{ whiteSpace: "nowrap" }}>العربية</span>
+        </Option>
+      </StyledSelect>
+    </StyledWrapper>
   );
 };
 
-const Dropdown = styled.select`
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 0.95rem;
+const StyledWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 12px;
   background-color: var(--color-bg);
-  color: var(--color-text);
   border: 1px solid var(--color-border, #ccc);
-  appearance: none;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
 
-  &:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 2px rgba(0, 138, 173, 0.2);
+  .globe-icon {
+    font-size: 18px;
+    color: var(--color-text);
+  }
+`;
+
+const StyledSelect = styled(Select)<{ value?: string }>`
+  min-width: 100px;
+
+  .ant-select-selector {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    padding-inline-start: 0 !important;
+    text-align: left;
   }
 
-  &:hover {
-    border-color: var(--color-primary);
+  .ant-select-selection-item {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
-  option {
-    color: #000;
+  .ant-select-dropdown {
+    min-width: 110px !important;
+  }
+
+  .ant-select-item-option-content {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .ant-select-arrow {
+    display: none;
   }
 `;
 

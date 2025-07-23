@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import ThemeToggle from "../components/ThemeToggle";
 
 const Navbar: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -15,6 +16,7 @@ const Navbar: React.FC = () => {
     <NavBarContainer>
       <Title>{t("navbar.title")}</Title>
       <RightContent>
+        <ThemeToggle />
         <UserName>Admin</UserName>
         <Avatar>A</Avatar>
       </RightContent>

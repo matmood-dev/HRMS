@@ -9,34 +9,38 @@ const LanguageSwitcher: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLang = event.target.value;
     i18n.changeLanguage(selectedLang);
-    document.documentElement.dir = selectedLang === "ar" ? "rtl" : "ltr";
   };
 
   return (
-    <Select value={i18n.language} onChange={handleChange} aria-label="Select language">
+    <Dropdown value={i18n.language} onChange={handleChange}>
       <option value="en">English</option>
       <option value="ar">العربية</option>
-    </Select>
+    </Dropdown>
   );
 };
 
-const Select = styled.select`
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
+const Dropdown = styled.select`
+  padding: 8px 14px;
+  border-radius: 8px;
   font-size: 0.95rem;
-  font-weight: 600;
-  background: transparent;
-  border: 1px solid var(--color-muted);
+  background-color: var(--color-bg);
   color: var(--color-text);
-  cursor: pointer;
-  transition: all 0.3s ease;
+  border: 1px solid var(--color-border, #ccc);
+  appearance: none;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 138, 173, 0.2);
+  }
 
   &:hover {
-    transform: scale(1.03);
+    border-color: var(--color-primary);
   }
 
   option {
-    color: black;
+    color: #000;
   }
 `;
 

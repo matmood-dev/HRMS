@@ -23,6 +23,7 @@ const Sidebar = styled.aside`
   flex-direction: column;
   padding: 1.5rem 1rem;
   border-right: 1px solid #e0e0e0;
+  border-left: 1px solid #e0e0e0;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.03);
 `;
 

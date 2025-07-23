@@ -1,13 +1,16 @@
 // src/layout/Footer.tsx
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <FooterContainer>
       <FooterContent>
-        <CopyText>© {new Date().getFullYear()} Humx HRMS. All rights reserved.</CopyText>
+        <CopyText>© {new Date().getFullYear()} {t("footer.rights")}</CopyText>
         <LanguageSwitcherWrapper>
           <LanguageSwitcher />
         </LanguageSwitcherWrapper>

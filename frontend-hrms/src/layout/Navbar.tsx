@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 const Navbar: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     const savedLanguage = i18n.language || "en";
@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
 
   return (
     <NavBarContainer>
-      <Title>Dashboard</Title>
+      <Title>{t("navbar.title")}</Title>
       <RightContent>
         <UserName>Admin</UserName>
         <Avatar>A</Avatar>

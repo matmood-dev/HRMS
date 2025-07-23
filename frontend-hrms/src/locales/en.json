@@ -1,0 +1,15 @@
+{
+    "navbar": {
+        "title": "Dashboard"
+    },
+
+    "footer": {
+    "rights": "Humx HRMS. All rights reserved."
+    },
+
+    "home":{
+        "welcome": "Welcome to Humx HRMS",
+        "description": "Manage your employees, payroll, leave, and more.",
+        "getStarted": "Get Started"
+    }
+}

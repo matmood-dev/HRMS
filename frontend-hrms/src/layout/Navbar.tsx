@@ -1,6 +1,26 @@
 // src/layout/Navbar.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+
+const Navbar: React.FC = () => {
+  const { i18n, t } = useTranslation();
+
+  useEffect(() => {
+    const savedLanguage = i18n.language || "en";
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
+
+  return (
+    <NavBarContainer>
+      <Title>{t("navbar.title")}</Title>
+      <RightContent>
+        <UserName>Admin</UserName>
+        <Avatar>A</Avatar>
+      </RightContent>
+    </NavBarContainer>
+  );
+};
 
 const NavBarContainer = styled.header`
   height: 60px;
@@ -42,17 +62,5 @@ const Avatar = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-const Navbar: React.FC = () => {
-  return (
-    <NavBarContainer>
-      <Title>Dashboard</Title>
-      <RightContent>
-        <UserName>Admin</UserName>
-        <Avatar>A</Avatar>
-      </RightContent>
-    </NavBarContainer>
-  );
-};
 
 export default Navbar;

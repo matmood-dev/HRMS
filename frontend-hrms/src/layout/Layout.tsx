@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { HomeOutlined, TeamOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 type Props = {
   children: React.ReactNode;
@@ -12,18 +13,21 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const { t } = useTranslation();
+
   return (
     <Container>
       <Sidebar>
         <SidebarTitle>Humx HRMS</SidebarTitle>
-        <NavItem>
-          <HomeOutlined style={{ marginRight: "8px" }} />
+
+        <StyledNavLink to="/">
+          <HomeOutlined />
           {t("layout.dashboard")}
-        </NavItem>
-        <NavItem>
-          <TeamOutlined style={{ marginRight: "8px" }} />
+        </StyledNavLink>
+
+        <StyledNavLink to="/employees">
+          <TeamOutlined />
           {t("employees.title")}
-        </NavItem>
+        </StyledNavLink>
       </Sidebar>
 
       <MainWrapper>
@@ -35,9 +39,11 @@ const Layout: React.FC<Props> = ({ children }) => {
   );
 };
 
+
 const Container = styled.div`
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: var(--color-bg);
   color: var(--color-text);
 `;
@@ -61,36 +67,47 @@ const SidebarTitle = styled.h2`
   color: var(--color-text);
 `;
 
-const NavItem = styled.div`
+const MainWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+const Main = styled.main`
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+`;
+
+const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin: 0.5rem 0;
   padding: 0.65rem 1rem;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 1rem;
   color: var(--color-muted);
+  text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
+
+  & svg {
+    font-size: 18px;
+  }
 
   &:hover {
     background-color: #f5f5f5;
     color: var(--color-text);
   }
-`;
 
-
-const MainWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Main = styled.main`
-  flex: 1;
-  padding: 2rem;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  &.active {
+    background-color: #f0f0f0;
+    color: var(--color-text);
+    font-weight: 600;
+  }
 `;
 
 export default Layout;

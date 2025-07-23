@@ -16,8 +16,19 @@
     "description": "قم بإدارة الموظفين، والرواتب، والإجازات، والمزيد.",
     "getStarted": "ابدأ الآن"
   },
-
-  "employees":{
-    "title": "الموظفين"
+  
+  "employees": {
+    "title": "الموظفون",
+    "add": "إضافة موظف",
+    "name": "الاسم",
+    "department": "القسم",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "statuses": {
+      "active": "نشط",
+      "inactive": "غير نشط"
+    }
   }
 }

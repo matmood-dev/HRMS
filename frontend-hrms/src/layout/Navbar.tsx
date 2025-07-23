@@ -3,18 +3,30 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import ThemeToggle from "../components/ThemeToggle";
+import { useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const { i18n, t } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     const savedLanguage = i18n.language || "en";
     document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
   }, [i18n.language]);
 
+  const pathToTitle: Record<string, string> = {
+    "/": "layout.dashboard",
+    "/employees": "employees.title",
+    "/attendance": "attendance.title",
+    "/payroll": "payroll.title",
+  };
+
+  const pageKey = pathToTitle[location.pathname] || "navbar.title";
+  const pageTitle = t(pageKey);
+
   return (
     <NavBarContainer>
-      <Title>{t("navbar.title")}</Title>
+      <Title>{pageTitle}</Title>
       <RightContent>
         <ThemeToggle />
         <UserName>Admin</UserName>

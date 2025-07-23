@@ -16,8 +16,19 @@
         "description": "Manage your employees, payroll, leave, and more.",
         "getStarted": "Get Started"
     },
-    
+
     "employees": {
-        "title": "Employees"
+        "title": "Employees",
+        "add": "Add Employee",
+        "name": "Name",
+        "department": "Department",
+        "status": "Status",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "statuses": {
+            "active": "Active",
+            "inactive": "Inactive"
+        }
     }
 }
